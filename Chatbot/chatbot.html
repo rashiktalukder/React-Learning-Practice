@@ -66,27 +66,49 @@
             
         }
         
+        function ChatMessages(){
+            const chatMessages = [{
+                message: 'Hello Chatbot',
+                sender: 'user',
+                id: 'id1'
+            },
+            {
+                message: 'Hello! How can I help you?',
+                sender: 'robot',
+                id: 'id2'
+            },
+            {
+                message: 'Todays date?', 
+                sender: 'user',
+                id: 'id3'
+            },
+            {
+                message: 'Today is January 12',
+                sender: 'robot',
+                id: 'id4'
+            }];
+
+            return(
+                <>
+                    {chatMessages.map((chatMessageObj)=>{
+                        return (
+                            <ChatMessage 
+                                message = {chatMessageObj.message}
+                                sender = {chatMessageObj.sender}
+                                key = {chatMessageObj.id}
+                            />
+                        );
+                    })} 
+                </>
+            );
+        }
+
         function App()
         {
             return(
                 <>
                     <ChatInput />
-                    <ChatMessage 
-                        message="Hello Chatbot" 
-                        sender="user" 
-                    />
-                    <ChatMessage 
-                        message="Hello! How can I help you?" 
-                        sender="robot" 
-                    />
-                    <ChatMessage 
-                        message="Todays date?" 
-                        sender="user" 
-                    />
-                    <ChatMessage 
-                        message="Today is January 12" 
-                        sender="robot" 
-                    />
+                    <ChatMessages />
                 </>
             );
         }
